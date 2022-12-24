@@ -17,13 +17,15 @@ const Search = () => {
   const handleOnWhat = () => {
     console.log('Focused');
     jobtypes();
+    console.log(What);
+
   }
 
   const jobtypes = async () => {
     const res = await axios.get('api/jobtypes/').then((responce) => {
       if (responce.status === 200) {
         SetWhat(responce.data);
-        console.log('countries get successfully');
+        console.log('jobtypes get successfully');
       }
     })
   }
@@ -32,6 +34,8 @@ const Search = () => {
   // where section 
   const handleOnSelectWhere = (item) => {
     console.log(item)
+    console.log('selected successfully');
+
   }
   const handleOnWhere = () => {
     console.log('Focused')
@@ -51,15 +55,16 @@ const Search = () => {
     <Form className='row mt-3'>
       <div className="col-lg-2 col-12 "></div>
       <div className="col-lg-4 p-2">
-        <ReactSearchAutocomplete placeholder="What Job title, Keywords" items={What} autoFocus
+        <ReactSearchAutocomplete placeholder="What Job title, Keywords" items={What} 
           onSelect={handleOnSelectWhat}
           onFocus={handleOnWhat}
         />
       </div>
       <div className="col-lg-4 p-2">
-        <ReactSearchAutocomplete placeholder="Where State, Countrie" items={Where} autoFocus
+        <ReactSearchAutocomplete placeholder="Where Country" items={Where} 
           onSelect={handleOnSelectWhere}
           onFocus={handleOnWhere}
+          // formatResult={formatResult}
         />
       </div>
       <div className="col-lg-2 p-2">

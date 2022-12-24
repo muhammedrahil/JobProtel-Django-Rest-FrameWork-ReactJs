@@ -1,7 +1,7 @@
 import React from 'react'
 import NavBar from '../../Componence/NavBar/NavBar'
 import Search from '../../Componence/Search/Search'
-import Tabs from '../../Componence/Tabs/Tabs'
+import JobTabs from '../../Componence/JobTabs/JobTabs'
 
 
 const Landing = () => {
@@ -11,7 +11,7 @@ const Landing = () => {
         <div className="row">
           <NavBar/>
           <Search/>
-          <Tabs/>
+          <JobTabs/>
         </div>
       </div>
       

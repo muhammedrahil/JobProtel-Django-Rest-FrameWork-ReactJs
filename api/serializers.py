@@ -13,8 +13,21 @@ class CountriesSerializer(ModelSerializer):
     model = Countries
     fields = '__all__'
     
+class CitySerializer(ModelSerializer):
+  class Meta:
+    model = City
+    fields = '__all__'
+    depth = 3
     
 class JobTypeSerializer(ModelSerializer):
   class Meta:
     model = JobType
     fields = '__all__'
+
+
+class JobsSerializer(ModelSerializer):
+  class Meta:
+    model = Jobs
+    fields = '__all__'
+    depth = 1
+    

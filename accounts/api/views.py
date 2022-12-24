@@ -49,7 +49,6 @@ class RetriveUsers(APIView):
 class UserTypeAPIView(ModelViewSet):
     serializer_class = UserTypeSerializer
     
-    
     def get_queryset(self):
         result = UserType.objects.filter(is_active=True)
         return result
@@ -92,8 +91,8 @@ class UserTypeAPIView(ModelViewSet):
             return Response(serializer.errors,status=status.HTTP_404_NOT_FOUND)
             
             
-        
-        
-        
+    
+    
+    
 
 

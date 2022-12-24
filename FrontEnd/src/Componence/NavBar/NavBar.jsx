@@ -30,8 +30,8 @@ const NavBar = () => {
 
   return (
     <>
-      <Navbar bg="light" expand="lg">
-        <Container fluid className='shadow-sm'>
+      <Navbar bg="light" expand="lg" >
+        <Container fluid className='shadow-sm' >
           <Navbar.Brand href="#">
             <img src={Companydeatails ? Companydeatails.logo : null} height="70px" alt="" />
             <Navbar.Text className='h2 fw-bold no-view-mobail'><cite>{Companydeatails ? Companydeatails.name : null}</cite></Navbar.Text>
