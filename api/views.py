@@ -1,11 +1,16 @@
-import requests
-from bs4 import BeautifulSoup
-import json
+from django.shortcuts import get_object_or_404
 from rest_framework.viewsets import ModelViewSet
 from .serializers import *
+from rest_framework.views import APIView
 from .models import *
 from django.http import HttpResponse
+from .pagination import StandardResultsSetPagination
+from rest_framework.response import Response
+from rest_framework import status
 
+from bs4 import BeautifulSoup
+import json
+import requests
 
 class WebsiteBasicDeatailsApiView(ModelViewSet):
     serializer_class = WebsiteBasicDeatailsSerializer
@@ -33,12 +38,35 @@ class JobTypeApiView(ModelViewSet):
 
 class JobsAPiView(ModelViewSet):
     serializer_class = JobsSerializer
-    
+    pagination_class = StandardResultsSetPagination
     def get_queryset(self):
         return Jobs.objects.all().order_by('-created_date')
 
 
-
+class JobQualificationView(APIView):
+    serializer_class = JobQualificationSerializer
+    
+    def get(self, request,pk=None):
+        result = Qualification.objects.filter(job=pk)
+        serializer = self.serializer_class(result,many=True)
+        return Response(serializer.data,status=status.HTTP_200_OK)
+    
+class FullJobDescriptionView(APIView):
+    serializer_class = FullJobDescriptionSerializer
+    
+    def get(self, request,pk=None):
+        result = FullJobDescription.objects.filter(job=pk)
+        serializer = self.serializer_class(result,many=True)
+        return Response(serializer.data,status=status.HTTP_200_OK)
+    
+    
+class JobDescriptionView(APIView):
+    serializer_class = JobDescriptionSerializer
+    
+    def get(self, request,pk=None):
+        result = job_description.objects.filter(job=pk)
+        serializer = self.serializer_class(result,many=True)
+        return Response(serializer.data,status=status.HTTP_200_OK)
 
 
 def temparay_use_fun(request):

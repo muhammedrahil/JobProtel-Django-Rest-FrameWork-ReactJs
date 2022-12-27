@@ -60,7 +60,7 @@ const Search = () => {
           onFocus={handleOnWhat}
         />
       </div>
-      <div className="col-lg-4 p-2">
+      <div className="col-lg-4 p-2" style={{ "zIndex": "2" }}>
         <ReactSearchAutocomplete placeholder="Where Country" items={Where} 
           onSelect={handleOnSelectWhere}
           onFocus={handleOnWhere}

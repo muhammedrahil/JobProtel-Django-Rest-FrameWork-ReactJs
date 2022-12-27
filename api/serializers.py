@@ -31,3 +31,22 @@ class JobsSerializer(ModelSerializer):
     fields = '__all__'
     depth = 1
     
+class JobQualificationSerializer(ModelSerializer):
+    class Meta:
+      model = Qualification
+      fields = '__all__'
+      depth = 1
+      
+      
+class FullJobDescriptionSerializer(ModelSerializer):
+    class Meta:
+      model = FullJobDescription
+      fields = '__all__'
+      depth = 1
+      
+      
+class JobDescriptionSerializer(ModelSerializer):
+    class Meta:
+      model = job_description
+      fields = '__all__'
+      depth = 1

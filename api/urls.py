@@ -10,8 +10,15 @@ router.register('jobs', v.JobsAPiView,basename="jobs")
 
 
 
+
 urlpatterns = [
       path('',include(router.urls)),
-      path('temparay-use-fun',v.temparay_use_fun)
+      path('temparay-use-fun',v.temparay_use_fun),
+      path('jobqualification/<int:pk>/',v.JobQualificationView.as_view()),
+      path('fulljobdescription/<int:pk>/',v.FullJobDescriptionView.as_view()),
+      path('job-description/<int:pk>/',v.JobDescriptionView.as_view()),
+
+
+      
       
 ]
