@@ -17,6 +17,8 @@ class WebsiteBasicDeatailsApiView(ModelViewSet):
 
     def get_queryset(self):
         result = WebsiteBasicDeatails.objects.all()
+        user = self.request.user
+        print(user)
         return result
 
 
@@ -41,6 +43,11 @@ class JobsAPiView(ModelViewSet):
     pagination_class = StandardResultsSetPagination
     def get_queryset(self):
         return Jobs.objects.all().order_by('-created_date')
+
+class LetestJobsAPiView(ModelViewSet):
+    serializer_class = JobsSerializer
+    def get_queryset(self):
+        return Jobs.objects.values("id").order_by('-created_date')[:1]
 
 
 class JobQualificationView(APIView):

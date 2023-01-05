@@ -7,6 +7,8 @@ router.register('webdeatails', v.WebsiteBasicDeatailsApiView,basename="webdeatai
 router.register('countries', v.CountriesApiView,basename="countries")
 router.register('jobtypes', v.JobTypeApiView,basename="jobtypes")
 router.register('jobs', v.JobsAPiView,basename="jobs")
+router.register('letest-jobs', v.LetestJobsAPiView,basename="letest-jobs")
+
 
 
 
